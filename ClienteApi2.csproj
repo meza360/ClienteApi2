@@ -169,6 +169,8 @@
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicamentosController.cs" />
+    <Compile Include="Controllers\Medicamentos2Controller.cs" />
+    <Compile Include="Controllers\otroController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -262,14 +264,18 @@
     <Content Include="Scripts\css\bootstrap.rtl.min.css" />
     <Content Include="Scripts\images\bayer.png" />
     <Content Include="Scripts\images\bonin.png" />
+    <Content Include="Scripts\images\byron.png" />
     <Content Include="Scripts\images\email.png" />
     <Content Include="Scripts\images\eurofarma.png" />
     <Content Include="Scripts\images\face.png" />
     <Content Include="Scripts\images\farm2.jpeg" />
     <Content Include="Scripts\images\farmacia.jpg" />
+    <Content Include="Scripts\images\gio.png" />
     <Content Include="Scripts\images\insta.png" />
+    <Content Include="Scripts\images\karina.png" />
     <Content Include="Scripts\images\lamfer.png" />
     <Content Include="Scripts\images\lancasco.jpg" />
+    <Content Include="Scripts\images\marvin.png" />
     <Content Include="Scripts\images\med.png" />
     <Content Include="Scripts\images\medpharma.png" />
     <Content Include="Scripts\images\nosotros1.png" />
@@ -285,6 +291,8 @@
     <Content Include="Scripts\images\umg.png" />
     <Content Include="Scripts\images\umg2.jpg" />
     <Content Include="Scripts\images\umg3.jpg" />
+    <Content Include="Scripts\images\umg4.jpg" />
+    <Content Include="Scripts\images\wendy.png" />
     <Content Include="Scripts\images\whats.png" />
     <None Include="Connected Services\ReferenciaServicioJava\Servicios.wsdl" />
     <None Include="Connected Services\ReferenciaServicioJava\Servicios.xsd">
@@ -317,12 +325,15 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\style.css" />
     <Content Include="Views\Medicamentos\BusquedaParametros.cshtml" />
-    <None Include="Views\Medicamentos\Busqueda.cshtml" />
+    <Content Include="Views\Medicamentos\Busqueda.cshtml" />
+    <Content Include="Views\Medicamentos\BusquedaLaboratorios.cshtml" />
     <None Include="Views\Medicamentos\Contacto.cshtml" />
     <None Include="Views\Medicamentos\DetalleMedicamentos.cshtml" />
     <Content Include="Views\Medicamentos\Edit.cshtml" />
     <None Include="Views\Medicamentos\Facturacion.cshtml" />
+    <Content Include="Views\Medicamentos\InsercionError.cshtml" />
     <None Include="Views\Medicamentos\Insercion.cshtml" />
+    <Content Include="Views\Medicamentos\listarrrrrrr.cshtml" />
     <None Include="Views\Medicamentos\Nosotros.cshtml" />
     <Content Include="Views\Medicamentos\Productos.cshtml" />
     <None Include="Views\Medicamentos\Sesiones.cshtml" />
@@ -349,6 +360,7 @@
     <Content Include="Scripts\js\bootstrap.esm.min.js.map" />
     <Content Include="Scripts\js\bootstrap.js.map" />
     <Content Include="Scripts\js\bootstrap.min.js.map" />
+    <Content Include="Views\Medicamentos\Venta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

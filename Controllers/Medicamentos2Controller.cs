@@ -13,7 +13,7 @@ using ClienteApi2.ReferenciaServicioJava;
 
 namespace ClienteApi2.Controllers
 {
-    public class MedicamentosController : Controller
+    public class Medicamentos2Controller : Controller
     {
         
         private ServiciosClient proxy = new ServiciosClient();
@@ -70,15 +70,14 @@ namespace ClienteApi2.Controllers
             }
         }
 
-
-        //GET: Busqueda
-
-
+        //GET: busqueda por codigo
         [HttpGet]
-        public ActionResult Busqueda(string selmed, string buscador)
+        public ActionResult Busqueda(string selmed,string buscador)
         {
             int opcion = int.Parse(selmed);
-
+            
+            //int selMed = 1;
+            Medicina med = new Medicina();
             Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
             Debug.AutoFlush = true;
             Debug.Indent();
@@ -86,55 +85,85 @@ namespace ClienteApi2.Controllers
             Debug.WriteLine("El valor del buscador es: " + buscador);
             Debug.Unindent();
 
-           
-            return View(proxy.listarcodigo(int.Parse(buscador)));
+            if (opcion == 1)
+            {
+                int argumento = int.Parse(buscador);
+                var respuesta = proxy.listarcodigo(argumento);
+                if (respuesta != null)
+                {
+                    med.Codigo = respuesta.codigo;
+                    med.Medicamento = respuesta.medicamento1;
+                    med.Dosis = respuesta.dosis;
+                    med.Precio_unitario = respuesta.precio_unitario;
+                    med.Cantidad_existencia = respuesta.cantidad_existencia;
+                    med.Laboratorio_farmaceutico = respuesta.laboratorio_farmaceutico;
+                    med.Vencimiento = respuesta.vencimiento;
+                    med.Presentacion = respuesta.presentacion;
+                    return View(respuesta);
+                }
+                else
+                {
+                    return Index();
+                }
+                
+               
+            }
+
+
+            return View();
+            
         }
 
-
-        //public ActionResult BusquedaCodigo(int codigo)
+        ////GET: busqueda por codigo
+        //[HttpGet]
+        //public void Busquedass(string selmed, string buscador)
         //{
+        //    int opcion = int.Parse(selmed);
 
+        //    //int selMed = 1;
+        //    Medicina med = new Medicina();
         //    Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
         //    Debug.AutoFlush = true;
         //    Debug.Indent();
-        //    Debug.WriteLine("El valor de busqueda es: " + codigo);
- 
+        //    Debug.WriteLine("El valor del metodo es: " + opcion);
+        //    Debug.WriteLine("El valor del buscador es: " + buscador);
         //    Debug.Unindent();
-        //    if (proxy.listarcodigo(codigo) != null)
+
+        //    if (opcion == 1)
         //    {
-        //        return View(proxy.listarcodigo(codigo));
+        //        int argumento = int.Parse(buscador);
+        //        var respuesta = proxy.listarcodigo(argumento);
+        //        if (respuesta != null)
+        //        {
+        //            med.Codigo = respuesta.codigo;
+        //            med.Medicamento = respuesta.medicamento1;
+        //            med.Dosis = respuesta.dosis;
+        //            med.Precio_unitario = respuesta.precio_unitario;
+        //            med.Cantidad_existencia = respuesta.cantidad_existencia;
+        //            med.Laboratorio_farmaceutico = respuesta.laboratorio_farmaceutico;
+        //            med.Vencimiento = respuesta.vencimiento;
+        //            med.Presentacion = respuesta.presentacion;
+        //            Busqueda();
+        //        }
+        //        else
+        //        {
+        //           Index();
+        //        }
+
+
         //    }
-        //    else
-        //        return View();
+          
+
+        //    return View();
+
         //}
-        [HttpGet]
-        public ActionResult BusquedaParametros(int selmed, string buscador)
+
+        public ActionResult Busqueda()
         {
-
-            string argumento = Convert.ToString(buscador);
-            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Debug.AutoFlush = true;
-            Debug.Indent();
-            Debug.WriteLine("El valor de busqueda es: " + argumento);
-
-                return View(proxy.listarNombre(argumento));
- 
+            return View();
         }
 
-        [HttpGet]
-        public ActionResult BusquedaLaboratorios(int selmed, string buscador)
-        {
-            string argumento = Convert.ToString(buscador);
-            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Debug.AutoFlush = true;
-            Debug.Indent();
-            Debug.WriteLine("El valor de busqueda es: " + argumento);
-            return View(proxy.listarLaboratorio(argumento));
-        }
 
-        //Aqui terminan los terminos de busqueda
-
-        //Secciones de retorno de vistas simples
         public ActionResult Contacto()
         {
             return View();
@@ -147,18 +176,10 @@ namespace ClienteApi2.Controllers
             return View(med);
         }
 
-        [HttpGet]
-        public ActionResult Facturacion(int id)
-        {
-            medicamento med = proxy.listarcodigo(id);
-            return View(med);
-        }
 
-        [HttpGet]
-        public ActionResult Venta(string cod, string med,string dos, string pre, string cant, string lab, string ven, string pres, string nombre, string nit)
+        public ActionResult Facturacion()
         {
-            //proxy.ventaActualizar(int.Parse(cod),1);
-            return View(proxy.ventaActualizar(int.Parse(cod), 1));
+            return View();
         }
         
         public ActionResult Nosotros()
@@ -191,7 +212,9 @@ namespace ClienteApi2.Controllers
             else
             {
                  return View("InsercionError");
-            } 
+            }
+            
+            
         }
 
 

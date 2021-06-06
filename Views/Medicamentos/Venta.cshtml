@@ -1,4 +1,8 @@
-﻿
+﻿@model ClienteApi2.ReferenciaServicioJava.medicamento
+
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +25,8 @@
 
     <script src="~/Scripts/js/bootstrap.js"></script>
     <script src="~/Scripts/js/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/js/bootstrap.bundle.min.js.map"></script>
     <script src="~/Scripts/js/bootstrap.min.js"></script>
-    <script src="~/Scripts/js/bootstrap.esm.js"></script>
-
 </head>
 
 <body background="" class="">
@@ -40,9 +43,11 @@
         </div>
     </header>
 
+
+
     <nav class=" container nav">
         <ul class="nav list-inline">
-            <li class="list-inline-item nav-item"> <a href="Index.cshtml" class="nav-link">@Html.ActionLink("Inicio", "", new { /* id=item.PrimaryKey */ })</a> </li>
+            <li class="list-inline-item nav-item"> <a href="Index.cshtml" class="nav-link">@Html.ActionLink("Index", "Index", new { /* id=item.PrimaryKey */ })</a> </li>
             <li class="list-inline-item nav-item"> <a href="sesiones.html" class="nav-link"> @Html.ActionLink("Administracion", "Sesiones")</a> </li>
             <li class="list-inline-item nav-item"> <a href="Productos.cshtml" class="nav-link">@Html.ActionLink("Productos", "Productos", new { /* id=item.PrimaryKey */ })</a></li>
             <li class="list-inline-item nav-item"> <a href="carrito.html" class="nav-link">Carrito de compras</a> </li>
@@ -50,37 +55,12 @@
     </nav>
 
 
+
     <section class="busqueda">
 
-        <form action="Busqueda" method="GET">
-            <label for="buscador">Buscar por codigo</label>
-            <select name="selmed" id="selmed">
-                <option value="1">Codigo</option>
-            </select>
-            <input type="text" name="buscador" placeholder="Criterios de busqueda" class="" required>
-            <button class="btn btn-light btn-outline-dark">Busqueda</button>
-        </form>
-
-        <form action="BusquedaParametros" method="GET">
-            <label for="buscador">Buscar medicamento</label>
-            <select name="selmed" id="selmed">
-                <option value="2">Medicamento</option>
-            </select>
-            <input type="text" name="buscador" placeholder="Criterios de busqueda" class="" required>
-            <button class="btn btn-light btn-outline-dark">Busqueda</button>
-        </form>
-
-        <form action="BusquedaLaboratorios" method="GET">
-            <label for="buscador">Buscar medicamento</label>
-            <select name="selmed" id="selmed">
-                <option value="3">Laboratorio</option>
-            </select>
-            <input type="text" name="buscador" placeholder="Criterios de busqueda" class="" required>
-            <button class="btn btn-light btn-outline-dark">Busqueda</button>
-        </form>
+        <h2 class="h2 bg-light">Venta de producto @Html.DisplayFor(model => model.medicamento1) .Revise la base de datos</h2>
 
     </section>
-    @*@Html.ActionLink("Buscar producto","Busqueda")*@
     <footer class="footer-1">
         <!-- Brand Start -->
         <div class="brand">

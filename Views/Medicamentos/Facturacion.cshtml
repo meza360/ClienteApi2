@@ -1,3 +1,5 @@
+@model ClienteApi2.ReferenciaServicioJava.medicamento
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,28 +53,26 @@
 
     <section class="facturacion">
 
-        <form action="ManejoPeticiones.html" method="POST">
+        <form action="Venta" method="GET">
 
             <div class="carta informacion">
                 <h2>Informacion</h2>
-                <ul>
-                    <li>Codigo</li>
-                    <li>Medicamento</li>
-                    <li>Dosis</li>
-                    <li>Precio unitario</li>
-                    <li>Cantidad Existencia</li>
-                    <li>Laboratorio</li>
-                    <li>Vencimiento</li>
-                    <li>Presentacion</li>
-                </ul>
-            </div>
-            <div class="carta informacion contact-form">
+
+                <input type="text"  value="@Html.DisplayFor(model => model.codigo)" name="txtCodigo" class="form-control">
+                <input type="text"  value="@Html.DisplayFor(model => model.medicamento1)" name="txtMedicamento" class="form-control">
+                <input type="text"  disabled value="Dosis: @Html.DisplayFor(model => model.dosis)" name="txtDosis" class="form-control">
+                <input type="text"  value="@Html.DisplayFor(model => model.precio_unitario)" name="txtPrecio" class="form-control">
+                <input type="text"  disabled value="Cantidad existencia: @Html.DisplayFor(model => model.cantidad_existencia)" name="txtCantidad" class="form-control">
+                <input type="text"  disabled value="Laboratorio: @Html.DisplayFor(model => model.laboratorio_farmaceutico)" name="txtLab" class="form-control">
+                <input type="text"  disabled value="Vencimiento: @Html.DisplayFor(model => model.vencimiento)" name="txtVen" class="form-control">
+                <input type="text"  disabled value="Presentacion: @Html.DisplayFor(model => model.presentacion)" name="txtPres" class="form-control">
                 <label for="txtNombre">Nombre</label>
                 <input type="text" name="txtNombre" id="txtNombre" class="form-control">
                 <label for="txtNit">NIT</label>
                 <input type="text" name="txtNit" id="txtNit" class="form-control">
-                <button class="btn btn-light btn-outline-dark"><a href="ManejoPeticiones.do">Facturar</a> </button>
+                <button class="btn btn-light btn-outline-dark">Facturar</button>
             </div>
+          
 
         </form>
 
